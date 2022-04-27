@@ -8,28 +8,33 @@ import flask
 
 # Input injection
 def transcode_file(request, filename):
+    "DOC STRING"
     command = 'ffmpeg -i "{source}" output_file.mpg'.format(source=filename)
     subprocess.call(command, shell=True)  # a bad idea!
 
 
 # Assert statements
 def foonction(request, user):
+    "DOC STRING 2"
     assert user.is_admin, 'user does not have access'
     # secure code...
 
 
 # Pickles
-class RunBinSh(object):
+class RunBinSh():
+    "CLASS DOC STRING"
     def __reduce__(self):
         return (subprocess.Popen, (('/bin/sh',),))
 
 def import_urlib_version(version):
+    "ANOTHER DOC STRING"
     split_version = shlex.split(version)
     sanitized_version = shlex.quote(split_version)
     exec("import urllib%s as urllib" % sanitized_version)
 
 @app.route('/')
 def index():
+    "LAST DOC STRING"
     module = flask.request.args.get("module")
     import_urlib_version(module)
 

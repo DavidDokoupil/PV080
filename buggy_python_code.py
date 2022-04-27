@@ -1,6 +1,5 @@
 # contains bunch of buggy examples
 # taken from https://hackernoon.com/10-common-security-gotchas-in-python-and-how-to-avoid-them-e19fbe265e03
-import cPickle
 import subprocess
 import base64
 import subprocess
@@ -13,7 +12,7 @@ def transcode_file(request, filename):
 
 
 # Assert statements
-def foo(request, user):
+def foonction(request, user):
     assert user.is_admin, 'user does not have access'
     # secure code...
 

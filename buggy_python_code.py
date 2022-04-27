@@ -3,6 +3,7 @@
 import subprocess
 import base64
 import subprocess
+import shlex
 import flask
 
 # Input injection
@@ -23,7 +24,9 @@ class RunBinSh(object):
         return (subprocess.Popen, (('/bin/sh',),))
 
 def import_urlib_version(version):
-    exec("import urllib%s as urllib" % version)
+    split_version = shlex.split(version)
+    sanitized_version = shlex.quote(split_version)
+    exec("import urllib%s as urllib" % sanitized_version)
 
 @app.route('/')
 def index():
